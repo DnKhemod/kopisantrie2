@@ -1,6 +1,4 @@
-/**
- * Toggle navigasi mobile.
- */
+/** Toggle navigasi pada layar kecil. */
 ( () => {
 	const toggle = document.querySelector( '[data-nav-toggle]' );
 	const menu = document.querySelector( '[data-nav-menu]' );
@@ -11,8 +9,7 @@
 
 	toggle.addEventListener( 'click', () => {
 		const isOpen = toggle.getAttribute( 'aria-expanded' ) === 'true';
-
 		toggle.setAttribute( 'aria-expanded', String( ! isOpen ) );
-		menu.classList.toggle( 'hidden', isOpen );
+		menu.classList.toggle( 'is-open', ! isOpen );
 	} );
 } )();

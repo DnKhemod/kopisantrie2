@@ -510,11 +510,11 @@ kopisantrie/
 │   │       └── theme.json
 │   │
 │   └── plugins/
-│       └── irama-santri-catalog/
+│       └── irama-santri-core/
 │           ├── includes/
-│           ├── admin/
+│           │   └── admin.php
 │           ├── assets/
-│           └── irama-santri-catalog.php
+│           └── irama-santri-core.php
 │
 └── package.json
 ```
@@ -901,3 +901,6 @@ Tahapan proyek yang direkomendasikan:
 ---
 
 **Akhir Dokumen PRD.md**
+
+
+

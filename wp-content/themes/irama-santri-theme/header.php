@@ -1,13 +1,11 @@
 <?php
-/**
- * Header.
- *
- * Struktur dasar; styling final menunggu design system.
- *
- * @package IramaSantriTheme
- */
-
+/** Header Theme Irama Santri. */
 defined( 'ABSPATH' ) || exit;
+$menu_page    = get_page_by_path( 'menu' );
+$about_page   = get_page_by_path( 'about' );
+$space_page   = get_page_by_path( 'our-space' );
+$gallery_page = get_page_by_path( 'gallery' );
+$contact_page = get_page_by_path( 'contact' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -16,50 +14,25 @@ defined( 'ABSPATH' ) || exit;
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class( 'bg-cream-50 text-coffee-900 antialiased' ); ?>>
+<body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-coffee-900" href="#primary">
-	<?php esc_html_e( 'Lewati ke konten', 'irama-santri' ); ?>
-</a>
-<header class="border-b border-cream-100">
-	<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-		<div class="site-branding">
-			<?php if ( has_custom_logo() ) : ?>
-				<?php the_custom_logo(); ?>
-			<?php else : ?>
-				<a class="text-lg font-semibold" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<?php bloginfo( 'name' ); ?>
-				</a>
-			<?php endif; ?>
-		</div>
-
-		<button
-			type="button"
-			class="rounded border border-cream-100 px-3 py-2 text-sm md:hidden"
-			data-nav-toggle
-			aria-expanded="false"
-			aria-controls="primary-menu"
-		>
-			<?php esc_html_e( 'Menu', 'irama-santri' ); ?>
-		</button>
-
-		<nav
-			id="primary-menu"
-			class="hidden w-full md:block md:w-auto"
-			data-nav-menu
-			aria-label="<?php esc_attr_e( 'Navigasi utama', 'irama-santri' ); ?>"
-		>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'menu_class'     => 'flex flex-col gap-3 text-sm md:flex-row md:items-center md:gap-5',
-					'fallback_cb'    => false,
-					'depth'          => 2,
-				)
-			);
-			?>
+<a class="skip-link" href="#primary"><?php esc_html_e( 'Lewati ke konten', 'irama-santri' ); ?></a>
+<div class="announcement-bar"><?php esc_html_e( 'Kedai Kopi · Community Space · Klayan, Cirebon', 'irama-santri' ); ?></div>
+<header class="site-header">
+	<div class="site-header__inner">
+		<a class="site-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php if ( has_custom_logo() ) : ?><?php the_custom_logo(); ?><?php else : ?><span class="site-brand__mark" aria-hidden="true">IS</span><span class="site-brand__name"><?php bloginfo( 'name' ); ?></span><?php endif; ?>
+		</a>
+		<button type="button" class="mobile-menu-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-menu"><span class="screen-reader-text"><?php esc_html_e( 'Buka navigasi', 'irama-santri' ); ?></span><span aria-hidden="true">☰</span></button>
+		<nav id="primary-menu" class="primary-nav" data-nav-menu aria-label="<?php esc_attr_e( 'Navigasi utama', 'irama-santri' ); ?>">
+			<ul>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Beranda', 'irama-santri' ); ?></a></li>
+				<?php if ( $about_page ) : ?><li><a href="<?php echo esc_url( get_permalink( $about_page ) ); ?>"><?php esc_html_e( 'Cerita', 'irama-santri' ); ?></a></li><?php endif; ?>
+				<?php if ( $menu_page ) : ?><li><a href="<?php echo esc_url( get_permalink( $menu_page ) ); ?>"><?php esc_html_e( 'Menu', 'irama-santri' ); ?></a></li><?php endif; ?>
+				<?php if ( $space_page ) : ?><li><a href="<?php echo esc_url( get_permalink( $space_page ) ); ?>"><?php esc_html_e( 'Fasilitas', 'irama-santri' ); ?></a></li><?php endif; ?>
+				<?php if ( $gallery_page ) : ?><li><a href="<?php echo esc_url( get_permalink( $gallery_page ) ); ?>"><?php esc_html_e( 'Galeri', 'irama-santri' ); ?></a></li><?php endif; ?>
+			</ul>
 		</nav>
+		<?php if ( $contact_page ) : ?><a class="button button--small" href="<?php echo esc_url( get_permalink( $contact_page ) ); ?>"><?php esc_html_e( 'Kunjungi Kedai', 'irama-santri' ); ?></a><?php endif; ?>
 	</div>
 </header>

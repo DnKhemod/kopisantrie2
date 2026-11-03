@@ -447,12 +447,11 @@ kopisantrie/
             │   ├── meta.php
             │   ├── options.php
             │   ├── template-functions.php
-            │   └── admin/
-            │       ├── product-fields.php
-            │       └── settings-page.php
+            │   └── admin.php
             └── assets/
                 ├── css/
                 └── js/
+                    └── admin-repeaters.js
 ```
 
 **Catatan:**
@@ -734,3 +733,4 @@ Arsitektur dianggap disetujui apabila:
 - tidak ada fitur di luar ruang lingkup yang ditambahkan.
 
 **Status dokumen: Draft 1.1 — menunggu review.**
+

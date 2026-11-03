@@ -28,17 +28,13 @@ require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/options.php';
 require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/template-functions.php';
 
 if ( is_admin() ) {
-	require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/admin/product-fields.php';
-	require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/admin/settings-page.php';
-	require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/admin/facilities-page.php';
-	require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/admin/gallery-page.php';
+	require_once IRAMA_SANTRI_PLUGIN_DIR . 'includes/admin.php';
 }
 
 add_action( 'init', 'irama_santri_register_post_types' );
 add_action( 'init', 'irama_santri_register_taxonomies' );
 add_action( 'init', 'irama_santri_register_meta' );
 add_action( 'admin_init', 'irama_santri_register_settings' );
-add_action( 'admin_menu', 'irama_santri_register_admin_pages' );
 
 /**
  * Menyiapkan data awal saat plugin diaktifkan.
@@ -65,3 +61,4 @@ function irama_santri_deactivate(): void {
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'irama_santri_deactivate' );
+
