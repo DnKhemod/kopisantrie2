@@ -1,0 +1,10 @@
+name: kopisantrie
+type: wordpress
+docroot: ""
+php_version: "8.3"
+webserver_type: nginx-fpm
+database:
+  type: mariadb
+  version: "10.11"
+performance_mode: none
+use_dns_when_possible: true

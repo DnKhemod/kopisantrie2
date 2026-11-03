@@ -1,0 +1,21 @@
+/*
+Theme Name: Irama Santri
+Theme URI: https://kopisantrie.com
+Author: Kedai Kopi Irama Santri
+Author URI: https://kopisantrie.com
+Description: Classic theme untuk Website Kedai Kopi Irama Santri. Styling menggunakan Tailwind CSS hasil kompilasi di assets/css/app.css.
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.8
+Requires PHP: 8.2
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: irama-santri
+Tags: custom-menu, featured-images, translation-ready
+*/
+
+/*
+ * File ini hanya menyimpan header Theme.
+ * Seluruh styling berada di assets/css/app.css hasil build Tailwind.
+ * Jangan menambahkan CSS manual di sini.
+ */

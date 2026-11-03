@@ -1,0 +1,17 @@
+{
+  "name": "kopisantrie",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website Kedai Kopi Irama Santri",
+  "scripts": {
+    "dev": "tailwindcss -i ./wp-content/themes/irama-santri-theme/src/css/app.css -o ./wp-content/themes/irama-santri-theme/assets/css/app.css --watch",
+    "build": "tailwindcss -i ./wp-content/themes/irama-santri-theme/src/css/app.css -o ./wp-content/themes/irama-santri-theme/assets/css/app.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

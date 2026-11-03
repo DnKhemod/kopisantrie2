@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment dan secret
+.env
+.env.*
+!.env.example
+wp-config.php
+wp-config-local.php
+.ddev/config.local.yaml
+.ddev/.env
+
+# WordPress core (sementara selama fase scaffold)
+# Ditinjau ulang saat repository digabung dengan upstream Pantheon.
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/wp-content/themes/twenty*/
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+
+# WordPress runtime
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+wp-content/ai1wm-backups/
+wp-content/*.sql
+wp-content/*.sql.gz
+wp-content/debug.log
+wp-content/uploads-backup/
+
+# DDEV
+.ddev/.dbimageBuild/
+.ddev/.routerimageBuild/
+.ddev/.webimageBuild/
+.ddev/.homeadditions/
+.ddev/.importdb*
+.ddev/.venv/
+.ddev/.ddev-docker-*
+.ddev/db_snapshots/
+
+# Tooling
+.cache/
+coverage/
+*.log
+npm-debug.log*
+
+# OS dan editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

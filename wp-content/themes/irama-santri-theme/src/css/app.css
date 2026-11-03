@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/*
+ * Token sementara.
+ * Nilai final menunggu persetujuan design system.
+ */
+@theme {
+  --color-cream-50: #faf7f1;
+  --color-cream-100: #f1e7d7;
+  --color-coffee-700: #5a3a28;
+  --color-coffee-900: #2e1c13;
+  --color-accent-600: #b07d4f;
+}
+
+@source "../../**/*.php";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-cream-50 text-coffee-900 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-600;
+  }
+}
