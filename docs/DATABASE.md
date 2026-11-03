@@ -1,13 +1,18 @@
 # DATABASE DESIGN — WEBSITE KEDAI KOPI IRAMA SANTRI
 
-**Versi:** 1.0  
+**Versi:** 1.1  
 **Status:** Draft — siap review  
 **Berdasarkan:** `ARCHITECTURE.md` 1.1 dan `PRD.md` 1.0  
-**Terakhir diperbarui:** 3 November 2026  
+**Terakhir diperbarui:** 4 November 2026  
 **Bahasa:** Indonesia
 
 ---
 
+## Perubahan Draft 1.1
+
+- Menyelaraskan contoh query featured dengan API plugin: `_is_available` harus bernilai `1`, bukan dibandingkan dengan `!=`.
+- Menjelaskan penggunaan helper sanitasi harga plugin pada varian dan add-on.
+- Mengonfirmasi bahwa `irama-santri-core` memiliki satu pintu admin melalui `includes/admin.php`; struktur data dan kepemilikannya tetap berada di plugin.
 ## 1. Tujuan Dokumen
 
 Dokumen ini menetapkan struktur data Website Kedai Kopi Irama Santri menggunakan API WordPress.
@@ -229,6 +234,7 @@ Aturan:
 - `true` = tersedia.
 - `false` = tidak tersedia.
 - Produk tidak tersedia tetap tampil dengan badge "Tidak tersedia".
+- Saat produk disimpan melalui form admin, nilai ketersediaan selalu disimpan eksplisit. Jika data dibuat melalui jalur lain, tulis meta _is_available secara eksplisit agar query featured dapat memfilter nilai 1 secara konsisten.
 
 ### 6.5 `_is_featured`
 
@@ -256,7 +262,7 @@ Alur sanitasi:
 4. Iterasi setiap item; hanya proses item bertipe array.
 5. Ambil `label` dan `price`.
 6. `label` disanitasi dengan `sanitize_text_field()`, dipotong 60 karakter.
-7. `price` diubah dengan `absint()`.
+7. `price` diubah dengan `irama_santri_sanitize_price()` dan dibatasi minimum 0.
 8. Lewati item dengan label kosong.
 9. Lewati label duplikat.
 10. Batasi maksimal 20 item.
@@ -452,7 +458,7 @@ $args = array(
         array(
             'key'     => '_is_available',
             'value'   => '1',
-            'compare' => '!=',
+            'compare' => '=',
         ),
     ),
 );
@@ -569,4 +575,8 @@ Tampilan: kartu tetap muncul dengan badge `Tidak tersedia`.
 6. Strategi migrasi jika katalog tumbuh besar.
 7. Kebutuhan impor/ekspor data produk.
 
-**Status dokumen: Draft 1.0 — menunggu review.**
+**Status dokumen: Draft 1.1 — menunggu review.**
+
+
+
+
